@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="title"
+            type="com.blood.pressure.pro.model.Title" />
+
+        <variable
+            name="position"
+            type="java.lang.Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_title"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:textSize="20sp"
+                android:textColor="@color/main_title"
+                android:paddingStart="18dp"
+                android:text="@={title.title_list.get(position).title}"
+                android:fontFamily="sans-serif-black"
+                android:gravity="start|center_vertical"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_main"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/rg_main"
+            app:layout_constraintTop_toBottomOf="@id/cl_title" />
+
+        <RadioGroup
+            android:id="@+id/rg_main"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <RadioButton
+                android:id="@+id/rb_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="@{position == 0}"
+                android:drawableTop="@drawable/ic_home"
+                android:gravity="center"
+                android:text="@={title.title_list.get(0).bottom}"
+                android:textColor="@color/navigation_bottom" />
+
+            <RadioButton
+                android:id="@+id/rb_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/ic_record"
+                android:gravity="center"
+                android:checked="@{position == 1}"
+                android:text="@={title.title_list.get(1).bottom}"
+                android:textColor="@color/navigation_bottom" />
+
+            <RadioButton
+                android:id="@+id/rb_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/ic_info"
+                android:gravity="center"
+                android:checked="@{position == 2}"
+                android:text="@={title.title_list.get(2).bottom}"
+                android:textColor="@color/navigation_bottom" />
+
+            <RadioButton
+                android:id="@+id/rb_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/ic_setting"
+                android:gravity="center"
+                android:checked="@{position == 3}"
+                android:text="@={title.title_list.get(3).bottom}"
+                android:textColor="@color/navigation_bottom" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="black_trans">#00000000</color>
+    <color name="white_trans">#00FFFFFF</color>
+    <color name="progress_value">#688BFF</color>
+    <color name="progress_bg">#33000000</color>
+
+    <color name="button_start">#60A2F0</color>
+    <color name="button_end">#6889FF</color>
+
+    <color name="guide_text_button">#FFFFFF</color>
+    <color name="guide_text_title">#172646</color>
+    <color name="guide_sp_title">#4B4B4B</color>
+    <color name="guide_text_content">#818CA3</color>
+    <color name="guide_text_privacy">#838383</color>
+    <color name="guide_text_agreement">#838383</color>
+
+    <color name="guide_radio_normal">#ECEFF7</color>
+    <color name="guide_radio_select">#688AFF</color>
+
+    <color name="main_title">#303547</color>
+
+    <color name="home_top_bg_start">#76B5FF</color>
+    <color name="home_top_bg_end">#6889FF</color>
+    <color name="home_top_to_record">#595975</color>
+    <color name="home_question">#3E3E5D</color>
+
+    <color name="info_title">#595975</color>
+
+    <color name="record_systolic_text">#242F40</color>
+    <color name="record_systolic_number">#6889FF</color>
+    <color name="record_systolic_unit">#959CAD</color>
+    <color name="record_more_bg">#D5D5DE</color>
+    <color name="record_more_text">#7A7A88</color>
+
+    <color name="record_level_0">#0498E9</color>
+    <color name="record_level_1">#55D047</color>
+    <color name="record_level_2">#FFD338</color>
+    <color name="record_level_3">#FFB967</color>
+    <color name="record_level_4">#FF8867</color>
+    <color name="record_level_5">#FD5E57</color>
+
+    <color name="record_chart">#34405A</color>
+    <color name="record_item_des">#3E3E5D</color>
+    <color name="record_item_time">#A5A5B7</color>
+
+    <color name="record_new_title">#112040</color>
+    <color name="record_new_time_bg">#E9E9EE</color>
+    <color name="record_new_time_text">#656576</color>
+    <color name="record_new_des">#555E75</color>
+    <color name="record_new_select_number">#6889FF</color>
+    <color name="record_new_normal_number">#C9C9C9</color>
+
+    <color name="setting_item_line">#F8F8F8</color>
+    <color name="setting_item_clock_bg">#7676B3</color>
+
+
+    <color name="item_bg_border">#ECECEC</color>
+
+
+    <color name="nav_select">#6889FF</color>
+    <color name="nav_normal">#9390A9</color>
+
+
+
+
+
+
+
+
+
+
+
+</resources>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="HomeTop"
+            type="com.blood.pressure.pro.model.HomeTop" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/top_bg"
+            android:layout_width="match_parent"
+            android:layout_height="139dp"
+            android:background="@drawable/btn_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/top_image"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@mipmap/ic_home_top_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="23dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/top_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:lineHeight="21sp"
+                android:maxLength="24"
+                android:text="@={HomeTop.title}"
+                android:textColor="@color/white"
+                android:textFontWeight="500"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/top_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="12dp"
+                android:ellipsize="end"
+                android:lineHeight="16sp"
+                android:maxLines="3"
+                android:lines="3"
+                android:text="@={HomeTop.content}"
+                android:textColor="@color/white"
+                android:textFontWeight="400"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/top_image"
+                app:layout_constraintStart_toStartOf="@id/top_title"
+                app:layout_constraintTop_toBottomOf="@id/top_title" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/top_btn"
+                android:layout_width="104dp"
+                android:layout_height="30dp"
+                android:background="@drawable/text_bg_to_record"
+                android:text="@={HomeTop.to}"
+                android:textAllCaps="false"
+                android:textColor="@color/home_top_to_record"
+                android:textSize="13sp"
+                android:paddingEnd="16dp"
+                android:drawableEnd="@mipmap/ic_home_to_record"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/top_content"
+                app:layout_constraintStart_toStartOf="@id/top_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@={HomeTop.question}"
+            android:textColor="@color/home_question"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-black"
+            app:layout_constraintTop_toBottomOf="@id/top_bg" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_rl"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
