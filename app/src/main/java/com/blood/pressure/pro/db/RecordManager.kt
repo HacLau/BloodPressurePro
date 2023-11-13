@@ -29,10 +29,19 @@ object RecordManager {
         }
     }
 
-    fun query(): List<RecordEntity> {
+    fun delete(data: RecordEntity) {
+        dbHelper.writableDatabase.apply {
+            execSQL(
+                "delete from ${DatabaseHelper.RECORD_TABLE_NAME} where id=?",
+                arrayOf<String>("${data.id}")
+            )
+            close()
+        }
+    }
+    fun queryByTime(minute:Long): List<RecordEntity> {
         return mutableListOf<RecordEntity>().let {list->
             dbHelper.readableDatabase.let {
-                it.rawQuery("select * from ${DatabaseHelper.RECORD_TABLE_NAME}", null).apply {
+                it.rawQuery("select * from ${DatabaseHelper.RECORD_TABLE_NAME} where time/1000/60=? order by time desc", arrayOf("${minute/1000/60}")).apply {
                     moveToFirst()
                     while (!isAfterLast) {
                         val recordEntity = RecordEntity(
@@ -41,7 +50,35 @@ object RecordManager {
                             getString(2),
                             getInt(3),
                             getInt(4),
-                            getString(5).toLong(),
+                            getLong(5),
+                        )
+                        list.add(recordEntity)
+                        moveToNext()
+                    }
+                    if (!isClosed) {
+                        close()
+                    }
+                }
+                it.close()
+            }
+            list
+
+        }
+    }
+
+    fun query(): List<RecordEntity> {
+        return mutableListOf<RecordEntity>().let {list->
+            dbHelper.readableDatabase.let {
+                it.rawQuery("select * from ${DatabaseHelper.RECORD_TABLE_NAME} order by time desc", null).apply {
+                    moveToFirst()
+                    while (!isAfterLast) {
+                        val recordEntity = RecordEntity(
+                            getInt(0),
+                            getInt(1),
+                            getString(2),
+                            getInt(3),
+                            getInt(4),
+                            getLong(5),
                         )
                         list.add(recordEntity)
                         moveToNext()

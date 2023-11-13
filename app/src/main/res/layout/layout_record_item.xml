@@ -30,6 +30,7 @@
             android:layout_marginTop="20dp"
             android:text="@{record.title}"
             android:textSize="15sp"
+            android:textColor="@color/record_new_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,7 +53,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="13dp"
-            android:text="@{des}"
+            android:text="@{time}"
             android:textColor="@color/record_item_time"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"

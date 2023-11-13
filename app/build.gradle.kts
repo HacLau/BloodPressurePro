@@ -3,6 +3,15 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
     id("kotlin-kapt")
+    id("stringfog")
+}
+apply(plugin = "stringfog")
+configure<com.github.megatronking.stringfog.plugin.StringFogExtension> {
+    implementation = "com.github.megatronking.stringfog.xor.StringFogImpl"
+    enable = true
+    fogPackages = arrayOf("com.blood.pressure.pro")
+    kg = com.github.megatronking.stringfog.plugin.kg.RandomKeyGenerator()
+    mode = com.github.megatronking.stringfog.plugin.StringFogMode.bytes
 }
 
 android {
@@ -59,4 +68,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     //gson
     implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.github.megatronking.stringfog:xor:5.0.0")
 }

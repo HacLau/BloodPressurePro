@@ -30,12 +30,15 @@
     <color name="home_question">#3E3E5D</color>
 
     <color name="info_title">#595975</color>
+    <color name="info_content">#6D6D84</color>
+    <color name="info_from">#B7B7C5</color>
 
     <color name="record_systolic_text">#242F40</color>
     <color name="record_systolic_number">#6889FF</color>
     <color name="record_systolic_unit">#959CAD</color>
     <color name="record_more_bg">#D5D5DE</color>
     <color name="record_more_text">#7A7A88</color>
+    <color name="record_chart_line">#DFDFDF</color>
 
     <color name="record_level_0">#0498E9</color>
     <color name="record_level_1">#55D047</color>

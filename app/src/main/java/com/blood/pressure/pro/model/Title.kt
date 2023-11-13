@@ -5,9 +5,9 @@ import androidx.databinding.BaseObservable
 data class Title(
     var id: Int,
     var title_list: List<TitleList>,
-    var more_record: String,
-    var new_record: String,
-    var edit_record: String
+    var moreRecord: String,
+    var newRecord: String,
+    var editRecord: String
 ) : BaseObservable()
 
 data class TitleList(

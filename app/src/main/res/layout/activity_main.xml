@@ -29,7 +29,7 @@
                 android:textSize="20sp"
                 android:textColor="@color/main_title"
                 android:paddingStart="18dp"
-                android:text="@={title.title_list.get(position).title}"
+                android:text="@{title.title_list.get(position).title}"
                 android:fontFamily="sans-serif-black"
                 android:gravity="start|center_vertical"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -59,7 +59,7 @@
                 android:checked="@{position == 0}"
                 android:drawableTop="@drawable/ic_home"
                 android:gravity="center"
-                android:text="@={title.title_list.get(0).bottom}"
+                android:text="@{title.title_list.get(0).bottom}"
                 android:textColor="@color/navigation_bottom" />
 
             <RadioButton
@@ -71,7 +71,7 @@
                 android:drawableTop="@drawable/ic_record"
                 android:gravity="center"
                 android:checked="@{position == 1}"
-                android:text="@={title.title_list.get(1).bottom}"
+                android:text="@{title.title_list.get(1).bottom}"
                 android:textColor="@color/navigation_bottom" />
 
             <RadioButton
@@ -83,7 +83,7 @@
                 android:drawableTop="@drawable/ic_info"
                 android:gravity="center"
                 android:checked="@{position == 2}"
-                android:text="@={title.title_list.get(2).bottom}"
+                android:text="@{title.title_list.get(2).bottom}"
                 android:textColor="@color/navigation_bottom" />
 
             <RadioButton
@@ -95,7 +95,7 @@
                 android:drawableTop="@drawable/ic_setting"
                 android:gravity="center"
                 android:checked="@{position == 3}"
-                android:text="@={title.title_list.get(3).bottom}"
+                android:text="@{title.title_list.get(3).bottom}"
                 android:textColor="@color/navigation_bottom" />
         </RadioGroup>
 

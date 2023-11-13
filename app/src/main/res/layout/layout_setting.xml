@@ -62,7 +62,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
-                    android:text="@{setting.alarm}"
+                    android:text="@{setting.share}"
                     android:textColor="@color/main_title"
                     android:textSize="16sp"
                     android:fontFamily="sans-serif-black"

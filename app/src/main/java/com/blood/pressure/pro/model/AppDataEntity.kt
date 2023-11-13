@@ -9,6 +9,7 @@ data class AppDataEntity(
     var record: Record,
     var home_top: HomeTop,
     var set_time: SetTime,
+    var dialog:DialogQuestion,
     var record_level: List<Level>,
     var info: List<Info>
 ):BaseObservable()

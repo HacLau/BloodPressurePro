@@ -64,6 +64,12 @@
     "contact": "Contact information",
     "mail": "abc@gmail.com"
   },
+  "dialog": {
+    "title": "Current minute\\'s time had data",
+    "content": "Need cover current data?",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
   "record": {
     "diastolic": "Diastolic",
     "systolic": "Systolic",
@@ -77,6 +83,9 @@
     "unit": "mmHg",
     "add_new": "+ New record",
     "more": "More",
+    "set_time": "Record Time",
+    "confirm": "Confirm",
+    "record_toast": "Please maintain systolic blood pressure above diastolic blood pressure",
     "filter": [
       {
         "time": "Recent Records"
@@ -111,6 +120,8 @@
     "day": "Day",
     "hour": "Hour",
     "minute": "Minute",
+    "overTime": "You choice time is exceed current time,please choice again",
+    "overYear": "Please select any time within one year",
     "cancel": "Cancel",
     "confirm": "Confirm"
   },
@@ -126,22 +137,22 @@
       "des": "Continue to maintain a healthy lifestyle. "
     },
     {
-      "title": "High",
+      "title": "Elevated",
       "content": "(SYS 120–129 and DIA 60–79)",
       "des": "Pay attention to your diet and reduce salt intake."
     },
     {
-      "title": "Stage 1",
+      "title": "Hypertension Stage 1",
       "content": "(SYS 130–139 or DIA 80–89)",
       "des": "Improve your lifestyle, exercise regularly, and manage your diet."
     },
     {
-      "title": "Stage 2",
+      "title": "Hypertension Stage 2",
       "content": "(SYS 140–180 or DIA 90–120)",
       "des": "Consult a doctor early on, as medication may be necessary."
     },
     {
-      "title": "Hypertension",
+      "title": "Hypertension crisis",
       "content": "(SYS 180+ or DIA 120+)",
       "des": "Seek medical advice promptly and develop an appropriate treatment plan."
     }

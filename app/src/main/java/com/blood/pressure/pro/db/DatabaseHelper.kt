@@ -32,11 +32,10 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAM
                 "(" +
                 "id integer primary key autoincrement," +
                 "level integer," +
+                "title varchar(50)," +
                 "systolic integer," +
                 "diastolic integer," +
-                "diastolic integer," +
-                "time varchar(13)," +
-                "title varchar(50)" +
+                "time integer" +
                 ")"
     }
 }

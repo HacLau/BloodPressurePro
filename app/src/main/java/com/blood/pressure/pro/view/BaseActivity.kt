@@ -16,8 +16,8 @@ import com.blood.pressure.pro.model.Info
 import com.blood.pressure.pro.model.RecordEntity
 import com.blood.pressure.pro.viewmodel.AppModel
 
-abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes resId:Int) : AppCompatActivity() {
-    val binding: VB by lazy { DataBindingUtil.setContentView(this,resId) }
+abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes resId: Int) : AppCompatActivity() {
+    val binding: VB by lazy { DataBindingUtil.setContentView(this, resId) }
     lateinit var viewModel: AppModel
     var isResume = false
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,11 +31,11 @@ abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes resId:Int) : AppCom
 
 
     private var forResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        "it.resultCode = ${it.resultCode}".logE()
         if (it.resultCode == Activity.RESULT_OK) {
             onResultSuccess.invoke()
         }
     }
-
 
 
     abstract fun initView()
@@ -49,31 +49,38 @@ abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes resId:Int) : AppCom
 
     fun startWebViewActivity(url: String, title: String) =
         startActivity(Intent(this, ContentActivity::class.java).apply {
-            putExtra(BaseName.type,BaseName.url)
-            putExtra(BaseName.url,url)
-            putExtra(BaseName.title,title)
-        })
-    fun startContentActivity(info: Info) =
-        startActivity(Intent(this, ContentActivity::class.java).apply {
-            putExtra(BaseName.type,BaseName.info)
-            putExtra(BaseName.info,info)
+            putExtra(BaseName.type, BaseName.url)
+            putExtra(BaseName.url, url)
+            putExtra(BaseName.title, title)
         })
 
-    fun startNewActivity(onResult:()->Unit) {
-        onResultSuccess = onResult
+    fun startInfoContentActivity(info: Info) =
         startActivity(Intent(this, ContentActivity::class.java).apply {
-            putExtra(BaseName.type,BaseName.new)
+            putExtra(BaseName.type, BaseName.info)
+            putExtra(BaseName.info, info)
         })
-    }
 
-    fun startNewActivity(recordEntity: RecordEntity,onResult:()->Unit) {
+    fun startRecordMoreActivity(onResult: () -> Unit) {
         onResultSuccess = onResult
         forResult.launch(Intent(this, ContentActivity::class.java).apply {
-            putExtra(BaseName.type,BaseName.edit)
-            putExtra(BaseName.record,recordEntity)
+            putExtra(BaseName.type, BaseName.more)
         })
     }
 
+    fun startRecordNewActivity(onResult: () -> Unit) {
+        onResultSuccess = onResult
+        forResult.launch(Intent(this, RecordActivity::class.java).apply {
+            putExtra(BaseName.type, BaseName.new)
+        })
+    }
+
+    fun startRecordEditActivity(recordEntity: RecordEntity, onResult: () -> Unit) {
+        onResultSuccess = onResult
+        forResult.launch(Intent(this, RecordActivity::class.java).apply {
+            putExtra(BaseName.type, BaseName.edit)
+            putExtra(BaseName.record, recordEntity)
+        })
+    }
 
 
     override fun onStart() {
@@ -97,7 +104,7 @@ abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes resId:Int) : AppCom
     }
 }
 
-object BaseName{
+object BaseName {
     const val type = "type"
     const val url = "url"
     const val title = "title"
@@ -105,12 +112,17 @@ object BaseName{
     const val new = "new"
     const val edit = "edit"
     const val record = "record"
+    const val more = "more"
 }
 
-fun String.toast(context: Context){
-    Toast.makeText(context,this,Toast.LENGTH_SHORT).show()
+fun String.toast(context: Context) {
+    Toast.makeText(context, this, Toast.LENGTH_SHORT).show()
 }
 
-fun String.logE(activity: Activity){
-    Log.e(activity.packageName,this)
+fun String.logE(activity: Activity) {
+    Log.e(activity.packageName, this)
+}
+
+fun String.logE() {
+    Log.e("BaseActivity", this)
 }
