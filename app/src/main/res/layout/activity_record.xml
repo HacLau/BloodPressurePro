@@ -311,7 +311,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/ll_degree"
                     android:layout_width="302dp"
-                    android:layout_height="10dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="13dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

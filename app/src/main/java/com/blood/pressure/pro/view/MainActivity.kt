@@ -87,9 +87,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                                 5
                             else
                                 viewModel.appDataEntity.info.size
-                        )).onEach {
-                        it.image = viewModel.infoImageList.random()
-                    }
+                        ))
                 ) {
                     startInfoContentActivity(it)
                 }
@@ -105,7 +103,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private fun refreshRecord(){
         recordList = RecordManager.query()
         recordBinding?.data = viewModel.recordData(recordList)
-        (recordBinding?.rvChart?.adapter as ChartAdapter).list = recordList
+        (recordBinding?.rvChart?.adapter as ChartAdapter).apply {
+            max = viewModel.recordData(recordList).max.toInt()
+            min = viewModel.recordData(recordList).min.toInt()
+            list = recordList
+        }
         (recordBinding?.rvItem?.adapter as RecordAdapter).list = getItemList()
     }
 
@@ -125,7 +127,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             rvChart.apply {
                 addItemDecoration(ItemBottomDecoration(0))
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                adapter = ChartAdapter(this@MainActivity, max = viewModel.recordData(recordList).max.toInt(), min = viewModel.recordData(recordList).min.toInt()).apply {
+                adapter = ChartAdapter(this@MainActivity).apply {
+                    max = viewModel.recordData(recordList).max.toInt()
+                    min = viewModel.recordData(recordList).min.toInt()
                     list = recordList
                     onItemClick = {
 
@@ -161,9 +165,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
                 adapter = InfoAdapter(
                     this@MainActivity,
-                    viewModel.appDataEntity.info.ifEmpty { mutableListOf() }.onEach {
-                        it.image = viewModel.infoImageList.random()
-                    }
+                    viewModel.appDataEntity.info.ifEmpty { mutableListOf() }
                 ) {
                     startInfoContentActivity(it)
                 }

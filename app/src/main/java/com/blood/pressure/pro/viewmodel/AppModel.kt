@@ -42,7 +42,11 @@ class AppModel : ViewModel() {
             it.read(buffer)
             it.close()
             String(buffer, Charset.defaultCharset())
-        }, Base64.DEFAULT).decodeToString(), AppDataEntity::class.java)
+        }, Base64.DEFAULT).decodeToString(), AppDataEntity::class.java).apply {
+            for (i in info.indices){
+                info[i].image = infoImageList[i % 4]
+            }
+        }
     }
 
     val infoImageList: List<Int> by lazy {

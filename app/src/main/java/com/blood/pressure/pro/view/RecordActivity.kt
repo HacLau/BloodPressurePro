@@ -34,7 +34,10 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>(R.layout.activity_rec
             if (entity.systolic > entity.diastolic) {
                 RecordManager.queryByTime(entity.time).let {
                     if (it.isEmpty()) {
-                        RecordManager.insert(entity)
+                        when(pageType){
+                            BaseName.new -> RecordManager.insert(entity)
+                            BaseName.edit -> RecordManager.update(entity)
+                        }
                         setResult(Activity.RESULT_OK)
                         finish()
                     } else {
@@ -93,29 +96,16 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>(R.layout.activity_rec
 
     private fun initPicker() {
         sysPicker = NumberSelector(this).apply {
-            maxValue = 300
-            minValue = 20
-            descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
-            wrapSelectorWheel = false
             setOnValueChangedListener { _, _, value ->
                 entity.systolic = value
                 setRecordLevel()
             }
-
-            @RequiresApi(Build.VERSION_CODES.Q)
-            selectionDividerHeight = 0
         }
         diasPicker = NumberSelector(this).apply {
-            maxValue = 300
-            minValue = 20
-            descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
-            wrapSelectorWheel = false
             setOnValueChangedListener { _, _, value ->
                 entity.diastolic = value
                 setRecordLevel()
             }
-            @RequiresApi(Build.VERSION_CODES.Q)
-            selectionDividerHeight = 0
         }
     }
 

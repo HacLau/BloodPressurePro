@@ -59,7 +59,7 @@ class ContentActivity : BaseActivity<ActivityContentBinding>(R.layout.activity_c
             adapter = RecordAdapter(this@ContentActivity).apply {
                 list = recordList
                 onItemClick = {
-                    startRecordNewActivity {
+                    startRecordEditActivity(it) {
                         setResult(Activity.RESULT_OK)
                         setRecordList()
                     }

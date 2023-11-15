@@ -10,6 +10,9 @@ object SharedHelper {
     var launchedStep:Boolean by SharedUtil(application,"launchedStep",false)
     var launchedStart:Boolean by SharedUtil(application,"launchedStart",false)
     var activityInBackTime: Long by SharedUtil(application,"activityInBackTime", 0L)
+    var androidId: String by SharedUtil(application,"androidId", "")
+    var logId: String by SharedUtil(application,"logId", "")
+    var cloakState: String by SharedUtil(application,"cloakState", "")
 }
 
 class SharedUtil<T>(

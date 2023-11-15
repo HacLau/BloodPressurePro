@@ -22,7 +22,6 @@ class RecordAdapter(
         @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
-            "RecordAdapter value.size = ${value.size}".logE()
             notifyDataSetChanged()
         }
     var onItemClick: (RecordEntity) -> Unit = {}

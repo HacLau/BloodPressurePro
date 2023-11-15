@@ -34,12 +34,16 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             buildConfigField("String", "privacy", "\"https://github.com/dashboard\"")
             buildConfigField("String", "agreement", "\"https://www.google.com/\"")
+            buildConfigField("String", "updateUrl", "\"https://foam.pressuretrack.net/pyre/newsmen\"")
+            buildConfigField("String", "clockUrl", "\"https://marino.pressuretrack.net/masonry/gravy\"")
         }
         debug {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             buildConfigField("String", "privacy", "\"https://github.com/dashboard\"")
             buildConfigField("String", "agreement", "\"https://www.google.com/\"")
+            buildConfigField("String", "updateUrl", "\"https://test-foam.pressuretrack.net/prudent/iliac/nancy\"")
+            buildConfigField("String", "clockUrl", "\"https://marino.pressuretrack.net/masonry/gravy\"")
         }
     }
     compileOptions {
@@ -68,5 +72,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     //gson
     implementation("com.google.code.gson:gson:2.10.1")
+    //stringfog
     implementation("com.github.megatronking.stringfog:xor:5.0.0")
+    // okhttp
+    implementation("com.squareup.okhttp3:okhttp:3.2.0")
 }

@@ -43,12 +43,12 @@ var onMove: (String) -> Unit = { _ -> }
 
     private fun initPaint() {
         textPaint = TextPaint(1).apply {
-            textSize = 50f
+            textSize = 40f
             color = mContext.resources.getColor(R.color.record_new_normal_number)
         }
         selectedPaint = TextPaint(1).apply {
             color = mContext.resources.getColor(R.color.record_new_select_number)
-            textSize = 60f
+            textSize = 50f
         }
     }
 

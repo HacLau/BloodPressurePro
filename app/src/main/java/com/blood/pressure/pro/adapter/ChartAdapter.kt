@@ -16,16 +16,15 @@ import com.blood.pressure.pro.util.getColorByLevel
 import com.blood.pressure.pro.view.logE
 
 class ChartAdapter(
-    private val context: Context,
-    private val max: Int = 0,
-    private val min: Int = 0,
+    private val context: Context
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    var max: Int = 0
+    var min: Int = 0
     private var viewHeight = 142
     var list: List<RecordEntity> = mutableListOf()
         @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
-            "ChartAdapter value.size = ${value.size}".logE()
             notifyDataSetChanged()
         }
     lateinit var onItemClick: () -> Unit
